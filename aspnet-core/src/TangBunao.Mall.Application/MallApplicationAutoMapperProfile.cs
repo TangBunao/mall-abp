@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using TangBunao.Mall.ProductBrands;
 using TangBunao.Mall.ProductCategories;
 
 namespace TangBunao.Mall
@@ -13,6 +14,9 @@ namespace TangBunao.Mall
 
             CreateMap<ProductCategory, ProductCategoryDto>();
             CreateMap<CreateUpdateProductCategoryDto, ProductCategory>();
+
+            CreateMap<ProductBrand, BrandDto>();
+            CreateMap<CreateUpdateBrandDto, ProductBrand>();
         }
     }
 }

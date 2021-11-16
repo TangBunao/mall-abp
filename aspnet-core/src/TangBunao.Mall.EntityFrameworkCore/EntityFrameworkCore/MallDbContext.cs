@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using TangBunao.Mall.ProductBrands;
 using TangBunao.Mall.ProductCategories;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
@@ -28,6 +29,7 @@ namespace TangBunao.Mall.EntityFrameworkCore
         /* Add DbSet properties for your Aggregate Roots / Entities here. */
 
         public DbSet<ProductCategory> ProductCategories { get; set; }
+        public DbSet<ProductBrand> Brands { get; set; }
 
         #region Entities from the modules
 
@@ -97,6 +99,19 @@ namespace TangBunao.Mall.EntityFrameworkCore
                 b.Property(x => x.ShowStatus).IsRequired().HasMaxLength(1);
                 b.Property(x => x.Icon).IsRequired().HasMaxLength(255);
                 b.Property(x => x.Keywords).IsRequired().HasMaxLength(255);
+            });
+
+            builder.Entity<ProductBrand>(b =>
+            {
+                b.ToTable(MallConsts.DbTablePrefixPms + nameof(ProductBrand), MallConsts.DbSchema);
+                b.ConfigureByConvention();
+                b.Property(x => x.Name).IsRequired().HasMaxLength(64);
+                b.Property(x => x.FirstLetter).IsRequired().HasMaxLength(8);
+                b.Property(x => x.FactoryStatus).IsRequired().HasMaxLength(1);
+                b.Property(x => x.ShowStatus).IsRequired().HasMaxLength(1);
+                b.Property(x => x.Logo).IsRequired().HasMaxLength(255);
+                b.Property(x => x.BigPic).IsRequired().HasMaxLength(255);
+                b.Property(x => x.BrandStory).IsRequired();
             });
         }
     }

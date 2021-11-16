@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TangBunao.Mall.AuditingContracts;
 using Volo.Abp;
 using Volo.Abp.Domain.Entities.Auditing;
 
 namespace TangBunao.Mall.ProductCategories
 {
-    public class ProductCategory : AuditedAggregateRoot<int>, ISoftDelete, IDeletionAuditedObject
+    /// <summary>
+    /// 商品分类表
+    /// </summary>
+    public class ProductCategory : FullAuditedAggregateRoot<int>
     {
         /// <summary>
         /// 上级分类的编号。0表示一级分类
@@ -65,20 +67,5 @@ namespace TangBunao.Mall.ProductCategories
         /// 描述
         /// </summary>
         public string Description { get; set; }
-
-        /// <summary>
-        /// 删除状态。0表示未删除，1表示已删除
-        /// </summary>
-        public bool IsDeleted { get; set; }
-
-        /// <summary>
-        /// 执行删除操作的用户Id
-        /// </summary>
-        public Guid? DeletedById { get; set; }
-
-        /// <summary>
-        /// 删除的时间
-        /// </summary>
-        public DateTime? DeletionTime { get; set; }
     }
 }
