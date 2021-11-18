@@ -76,5 +76,22 @@ namespace TangBunao.Mall.ProductComments
         /// 回复数
         /// </summary>
         public int ReplayCount { get; set; }
+
+        public ICollection<ProductCommentReplay> CommentReplaies { get; set; }
+
+        private ProductComment()
+        {
+
+        }
+
+        public void AddReplay(ProductCommentReplay replay)
+        {
+            CommentReplaies.Add(replay);
+        }
+
+        public IEnumerable<ProductCommentReplay> GetRecentReplaies(int count = 3)
+        {            
+            return CommentReplaies.OrderByDescending(r => r.CreationTime).Take(count);
+        }
     }
 }
