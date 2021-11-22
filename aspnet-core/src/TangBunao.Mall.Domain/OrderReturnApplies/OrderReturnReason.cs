@@ -7,6 +7,9 @@ using Volo.Abp.Domain.Entities.Auditing;
 
 namespace TangBunao.Mall.OrderReturnApplies
 {
+    /// <summary>
+    /// 订单退后原因表，用于退货时选择退货原因
+    /// </summary>
     public class OrderReturnReason : FullAuditedEntity<int>
     {
         /// <summary>

@@ -7,6 +7,9 @@ using Volo.Abp.Domain.Entities.Auditing;
 
 namespace TangBunao.Mall.OrderReturnApplies
 {
+    /// <summary>
+    /// 公司收货地址表，用于处理退货申请时选择的收货地址
+    /// </summary>
     public class CompanyAddress : FullAuditedEntity<int>
     {
         /// <summary>

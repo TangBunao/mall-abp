@@ -7,6 +7,9 @@ using Volo.Abp.Domain.Entities.Auditing;
 
 namespace TangBunao.Mall.OrderReturnApplies
 {
+    /// <summary>
+    /// 订单退货申请表，用于存储会员退货申请信息。
+    /// </summary>
     public class OrderReturnApply : FullAuditedAggregateRoot<int>
     {
         /// <summary>
